@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import pool from './config/db.js';
 
 import userRoutes from './routes/noteRoutes.js';
+import errorHandling from './middlewares/errorHandler.js';
 
 dotenv.config();
 
@@ -18,6 +19,7 @@ app.use(cors());
 app.use('/api', userRoutes);
 
 // Error handling middleware
+app.use(errorHandling);
 
 // Test postgres connection
 app.get('/', async (req, res) => {
