@@ -3,6 +3,8 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import pool from './config/db.js';
 
+import userRoutes from './routes/noteRoutes.js';
+
 dotenv.config();
 
 const app = express();
@@ -13,6 +15,7 @@ app.use(express.json());
 app.use(cors());
 
 // Routes
+app.use('/api', userRoutes);
 
 // Error handling middleware
 
