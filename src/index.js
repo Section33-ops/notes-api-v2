@@ -5,6 +5,7 @@ import pool from './config/db.js';
 
 import userRoutes from './routes/noteRoutes.js';
 import errorHandling from './middlewares/errorHandler.js';
+import createNoteTable from './data/createNoteTable.js';
 
 dotenv.config();
 
@@ -20,6 +21,9 @@ app.use('/api', userRoutes);
 
 // Error handling middleware
 app.use(errorHandling);
+
+// Create tasble
+createNoteTable();
 
 // Test postgres connection
 app.get('/', async (req, res) => {
