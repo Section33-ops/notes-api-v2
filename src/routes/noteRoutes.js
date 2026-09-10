@@ -6,13 +6,14 @@ import {
   getNoteById,
   updateNote,
 } from '../controller/noteController.js';
+import validateNote from '../middlewares/inputValidator.js';
 
 const router = express.Router();
 
-router.post('/notes', createNote);
+router.post('/notes', validateNote, createNote);
 router.get('/notes', getAllNotes);
 router.get('/notes/:id', getNoteById);
-router.put('/notes/:id', updateNote);
+router.put('/notes/:id', validateNote, updateNote);
 router.delete('/note/:id', deleteNote);
 
 export default router;
