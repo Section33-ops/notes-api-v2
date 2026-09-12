@@ -23,9 +23,8 @@ export const updateNoteService = async (id, title, content) => {
   return result.rows[0];
 };
 export const deleteNoteService = async (id) => {
-  const result = await pool.query(
-    'DELETE FROM notes WHERE id=$1 REUTURNING *',
-    [id],
-  );
+  const result = await pool.query('DELETE FROM notes WHERE id=$1 RETURNING *', [
+    id,
+  ]);
   return result.rows[0];
 };

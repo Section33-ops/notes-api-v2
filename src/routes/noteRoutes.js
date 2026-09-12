@@ -14,6 +14,6 @@ router.post('/notes', validateNote, createNote);
 router.get('/notes', getAllNotes);
 router.get('/notes/:id', getNoteById);
 router.put('/notes/:id', validateNote, updateNote);
-router.delete('/note/:id', deleteNote);
+router.delete('/notes/:id', deleteNote);
 
 export default router;
